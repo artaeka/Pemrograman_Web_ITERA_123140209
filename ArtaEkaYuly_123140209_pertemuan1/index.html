@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kasir Kantin - Mini POS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>Kasir Kantin Kampus</h1>
+    <button id="btnReset" class="btn btn-outline" type="button">Transaksi Baru</button>
+  </header>
+
+  <main class="layout">
+    <section class="panel">
+      <h2>Tambah barang</h2>
+      <form id="formBarang" novalidate>
+        <label for="nama">Nama barang</label>
+        <input id="nama" type="text" placeholder="Contoh: Buku Tulis">
+        <p class="error" id="errNama"></p>
+
+        <label for="harga">Harga satuan (Rp)</label>
+        <input id="harga" type="number" placeholder="Minimal 500">
+        <p class="error" id="errHarga"></p>
+
+        <label for="qty">Jumlah</label>
+        <input id="qty" type="number" placeholder="Minimal 1">
+        <p class="error" id="errQty"></p>
+
+        <button class="btn btn-primary" type="submit">Tambah ke keranjang</button>
+      </form>
+    </section>
+
+    <section class="panel panel-wide">
+      <h2>Keranjang belanja</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>No</th><th>Nama Barang</th><th>Harga Satuan</th><th>Qty</th><th>Subtotal</th><th>Aksi</th></tr>
+          </thead>
+          <tbody id="tbodyKeranjang"></tbody>
+        </table>
+      </div>
+
+      <div class="summary">
+        <div class="promo">
+          <label for="promo">Kode promo (opsional)</label>
+          <input id="promo" type="text" placeholder="HEMAT10">
+          <p class="hint" id="infoDiskon"></p>
+        </div>
+        <dl class="totals">
+          <div><dt>Total belanja</dt><dd id="total">Rp 0</dd></div>
+          <div><dt>Diskon</dt><dd id="diskon">Rp 0</dd></div>
+          <div class="grand"><dt>Total bayar</dt><dd id="totalAkhir">Rp 0</dd></div>
+        </dl>
+        <div class="pay">
+          <label for="bayar">Uang bayar (Rp)</label>
+          <input id="bayar" type="number" placeholder="0">
+          <p class="kembalian" id="kembalian">Kembalian: Rp 0</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
