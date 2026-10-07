@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Latihan 1 - Data Mahasiswa</title>
+<style>
+body{font-family:Arial,sans-serif;max-width:640px;margin:2rem auto;padding:0 1rem}
+label{display:block;margin-top:.7rem;font-weight:bold}
+input,select{width:100%;padding:.5rem;margin-top:.2rem;box-sizing:border-box}
+.error{color:red;font-size:.85rem;min-height:1em;margin:.2rem 0 0}
+button{margin-top:1rem;padding:.5rem 1rem;cursor:pointer}
+table{width:100%;border-collapse:collapse;margin-top:1.5rem}
+th,td{border:1px solid #ccc;padding:.4rem;text-align:left}
+</style></head><body>
+<h1>Data Mahasiswa</h1>
+<form id="form" novalidate>
+  <label for="nama">Nama</label><input id="nama"><p class="error" id="eNama"></p>
+  <label for="nim">NIM (9 digit angka)</label><input id="nim"><p class="error" id="eNim"></p>
+  <label for="email">Email</label><input id="email"><p class="error" id="eEmail"></p>
+  <label for="prodi">Program Studi</label>
+  <select id="prodi"><option value="">-- Pilih --</option><option>Teknik Informatika</option><option>Sistem Informasi</option><option>Teknik Elektro</option></select>
+  <p class="error" id="eProdi"></p>
+  <button type="submit">Tambah Mahasiswa</button>
+</form>
+<table><thead><tr><th>No</th><th>Nama</th><th>NIM</th><th>Email</th><th>Prodi</th><th>Aksi</th></tr></thead><tbody id="tbody"></tbody></table>
+<script>
+const KEY = "dataMahasiswa";
+let data = JSON.parse(localStorage.getItem(KEY)) || [];
+const $ = (id) => document.getElementById(id);
+
+function cek(id, errId, kondisi, pesan) {
+  $(errId).textContent = kondisi ? "" : pesan;
+  return kondisi;
+}
+
+$("form").addEventListener("submit", (e) => {
+  e.preventDefault();
+  const nama = $("nama").value.trim(), nim = $("nim").value.trim();
+  const email = $("email").value.trim(), prodi = $("prodi").value;
+  const ok = [
+    cek("nama", "eNama", nama.length >= 3, "Nama minimal 3 karakter."),
+    cek("nim", "eNim", /^\d{9}$/.test(nim), "NIM harus 9 digit angka."),
+    cek("email", "eEmail", /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email), "Format email tidak valid."),
+    cek("prodi", "eProdi", prodi !== "", "Pilih program studi."),
+  ].every(Boolean);
+  if (!ok) return;
+  if (data.some((m) => m.nim === nim)) { $("eNim").textContent = "NIM sudah terdaftar."; return; }
+  data.push({ nama, nim, email, prodi });
+  localStorage.setItem(KEY, JSON.stringify(data));
+  e.target.reset();
+  render();
+});
+
+function hapus(i) {
+  data.splice(i, 1);
+  localStorage.setItem(KEY, JSON.stringify(data));
+  render();
+}
+
+function render() {
+  $("tbody").innerHTML = "";
+  data.forEach((m, i) => {
+    const tr = document.createElement("tr");
+    [i + 1, m.nama, m.nim, m.email, m.prodi].forEach((v) => {
+      const td = document.createElement("td"); td.textContent = v; tr.appendChild(td);
+    });
+    const td = document.createElement("td");
+    const b = document.createElement("button"); b.textContent = "Hapus"; b.onclick = () => hapus(i);
+    td.appendChild(b); tr.appendChild(td); $("tbody").appendChild(tr);
+  });
+}
+render();
+</script></body></html>

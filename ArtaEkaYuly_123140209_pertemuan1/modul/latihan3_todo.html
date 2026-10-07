@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Latihan 3 - Todo List</title>
+<style>
+body{font-family:Arial,sans-serif;max-width:520px;margin:2rem auto;padding:0 1rem}
+.row{display:flex;gap:.5rem}
+input[type=text]{flex:1;padding:.5rem}
+button{padding:.5rem .8rem;cursor:pointer}
+ul{list-style:none;padding:0}
+li{display:flex;align-items:center;gap:.6rem;padding:.5rem;border-bottom:1px solid #ddd}
+li span{flex:1}
+li.selesai span{text-decoration:line-through;color:#888}
+.error{color:red;font-size:.85rem;min-height:1em}
+</style></head><body>
+<h1>Todo List</h1>
+<form id="form" class="row"><input type="text" id="input" placeholder="Tulis tugas..."><button type="submit">Tambah</button></form>
+<p class="error" id="err"></p>
+<ul id="list"></ul>
+<p id="sisa"></p>
+<script>
+const KEY = "todos";
+let todos = JSON.parse(localStorage.getItem(KEY)) || [];
+const $ = (id) => document.getElementById(id);
+const simpan = () => localStorage.setItem(KEY, JSON.stringify(todos));
+
+$("form").addEventListener("submit", (e) => {
+  e.preventDefault();
+  const teks = $("input").value.trim();
+  if (teks === "") { $("err").textContent = "Tugas tidak boleh kosong."; return; }
+  $("err").textContent = "";
+  todos.push({ id: Date.now(), teks, selesai: false });
+  simpan(); $("input").value = ""; render();
+});
+
+function render() {
+  $("list").innerHTML = "";
+  todos.forEach((t) => {
+    const li = document.createElement("li");
+    if (t.selesai) li.classList.add("selesai");
+    const cb = document.createElement("input"); cb.type = "checkbox"; cb.checked = t.selesai;
+    cb.onchange = () => { t.selesai = cb.checked; simpan(); render(); };
+    const sp = document.createElement("span"); sp.textContent = t.teks;
+    const bt = document.createElement("button"); bt.textContent = "Hapus";
+    bt.onclick = () => { todos = todos.filter((x) => x.id !== t.id); simpan(); render(); };
+    li.append(cb, sp, bt); $("list").appendChild(li);
+  });
+  const sisa = todos.filter((t) => !t.selesai).length;
+  $("sisa").textContent = todos.length ? `${sisa} tugas belum selesai` : "Belum ada tugas.";
+}
+render();
+</script></body></html>
