@@ -1,3 +1,4 @@
+ooooooooooooooo4hh
 # Mini POS – Kasir & Keranjang Belanja Sederhana
 
 ## Identitas
@@ -32,9 +33,9 @@ Mini POS adalah aplikasi web kasir untuk kantin atau toko kampus. Kasir memasukk
 
 | Tampilan | Gambar |
 |---|---|
-| Form input utama | ![Form](forminpututama.png) |
-| Validasi error | ![Error](validasierror.png) |
-| Hasil kalkulator & tabel keranjang | ![Hasil](hasilperhitungan.png) |
+| Form input utama | ![Form](screenshots/forminpututama.png) |
+| Validasi error | ![Error](screenshots/validasierror.png) |
+| Hasil kalkulator & tabel keranjang | ![Hasil](screenshots/hasilperhitungan.png) |
 
 ## Penjelasan Teknis Singkat
 **Validasi input.** Fungsi `validasi()` membaca nilai ketiga input, memeriksanya (nama ≥ 3 karakter, harga ≥ 500, qty bilangan bulat ≥ 1 lewat `Number.isInteger`), lalu menampilkan pesan merah lewat `setError()`. Jika ada yang salah, fungsi mengembalikan `null` sehingga barang tidak ditambahkan.
