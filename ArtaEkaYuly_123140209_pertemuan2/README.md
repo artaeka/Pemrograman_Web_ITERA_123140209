@@ -28,10 +28,9 @@ Praktikum JavaScript ES6+ — dibuat dengan HTML, CSS, dan JavaScript murni (tan
 
 ## Screenshot
 
-> **Catatan:** tambahkan screenshot hasil jalankan aplikasi Anda di folder `screenshots/` lalu sesuaikan nama file di bawah.
-
 ![Tampilan utama dashboard](screenshots/dashboard.png)
-![Tampilan edit tugas / tampilan mobile](screenshots/edit.png) (screenshots/current.png)
+![Tampilan edit tugas / tampilan mobile](screenshots/edit.png) 
+![Tampilan edit tugas / tampilan mobile](screenshots/current.png)
 
 ## Sumber API Publik (Gratis, Tanpa API Key)
 
