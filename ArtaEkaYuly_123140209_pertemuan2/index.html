@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Hub — Dashboard Tugas Mahasiswa</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+
+    <!-- HEADER: jam, tanggal, kutipan harian -->
+    <header class="header card">
+      <div class="header__time">
+        <p id="clock" class="clock">--:--:--</p>
+        <p id="date" class="date">Memuat tanggal…</p>
+        <p id="greeting" class="greeting"></p>
+      </div>
+      <figure class="quote">
+        <blockquote id="quote-text">Memuat kutipan harian…</blockquote>
+        <figcaption id="quote-author"></figcaption>
+        <button id="btn-quote" class="btn btn--ghost btn--sm" type="button">🔄 Kutipan baru</button>
+      </figure>
+    </header>
+
+    <main class="grid">
+
+      <!-- KOLOM KIRI: cuaca + statistik -->
+      <aside class="side">
+        <section class="card" aria-labelledby="weather-title">
+          <h2 id="weather-title">Cuaca Kampus ITERA</h2>
+          <div id="weather" class="weather">Memuat cuaca…</div>
+        </section>
+
+        <section class="card" aria-labelledby="stats-title">
+          <h2 id="stats-title">Ringkasan Tugas</h2>
+          <div id="stats" class="stats"></div>
+          <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+            <div id="progress-bar" class="progress__bar"></div>
+          </div>
+          <p id="progress-label" class="muted"></p>
+        </section>
+      </aside>
+
+      <!-- KOLOM KANAN: form + daftar tugas -->
+      <section class="main-col">
+        <div class="card">
+          <h2 id="form-title">Tambah Tugas Baru</h2>
+          <form id="task-form" class="form" autocomplete="off">
+            <label class="field field--full">
+              <span>Judul tugas</span>
+              <input type="text" name="title" id="input-title" placeholder="mis. Laporan praktikum Pemrograman Web" required maxlength="120">
+            </label>
+            <label class="field">
+              <span>Mata kuliah</span>
+              <input type="text" name="course" id="input-course" placeholder="mis. Pemrograman Web" maxlength="60">
+            </label>
+            <label class="field">
+              <span>Tenggat</span>
+              <input type="date" name="deadline" id="input-deadline">
+            </label>
+            <label class="field">
+              <span>Prioritas</span>
+              <select name="priority" id="input-priority">
+                <option value="rendah">Rendah</option>
+                <option value="sedang" selected>Sedang</option>
+                <option value="tinggi">Tinggi</option>
+              </select>
+            </label>
+            <div class="form__actions">
+              <button type="submit" id="btn-submit" class="btn btn--primary">➕ Tambah</button>
+              <button type="button" id="btn-cancel" class="btn btn--ghost" hidden>Batal</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="card">
+          <div class="toolbar">
+            <h2>Daftar Tugas</h2>
+            <input type="search" id="search" class="search" placeholder="🔍 Cari tugas / mata kuliah…">
+          </div>
+          <div class="filters" id="filters">
+            <button class="chip is-active" data-filter="all" type="button">Semua</button>
+            <button class="chip" data-filter="active" type="button">Aktif</button>
+            <button class="chip" data-filter="done" type="button">Selesai</button>
+          </div>
+          <ul id="task-list" class="task-list"></ul>
+          <div class="list-footer">
+            <button id="btn-clear-done" class="btn btn--ghost btn--sm" type="button">🧹 Hapus yang selesai</button>
+            <button id="btn-reset" class="btn btn--ghost btn--sm" type="button">♻️ Reset data contoh</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer muted">
+      Campus Hub · Praktikum JavaScript ES6+ · Data tersimpan di browser (localStorage)
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
