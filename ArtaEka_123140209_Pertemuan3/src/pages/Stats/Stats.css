@@ -1,0 +1,62 @@
+.stat-total {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+  color: #475569;
+}
+
+.stat-total .stat-number {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #4f46e5;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 1rem;
+}
+
+.stat-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.stat-card .stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.stat-label {
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+.bar {
+  height: 8px;
+  background: #e2e8f0;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-top: 0.4rem;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.3s;
+}
+
+.stat-milik .bar-fill { background: #22c55e; }
+.stat-baca  .bar-fill { background: #f59e0b; }
+.stat-beli  .bar-fill { background: #3b82f6; }
+
+.stat-percent {
+  font-size: 0.8rem;
+  color: #64748b;
+}
