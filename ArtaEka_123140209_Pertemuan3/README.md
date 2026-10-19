@@ -152,12 +152,6 @@ Framework: **Vitest + React Testing Library** (14 test, semuanya lulus).
 | 13 | Aplikasi | edit buku |
 | 14 | Aplikasi | tambah buku lewat halaman tambah → muncul di statistik |
 
-Output eksekusi lengkap ada di [`docs/laporan-testing.txt`](docs/laporan-testing.txt).
-Jalankan `npm test`, lalu simpan screenshot terminal ke
-`docs/screenshots/test-result.png`:
-
-![Hasil Test](docs/screenshots/test-result.png)
-
 ## Teknologi
 
 React 19 · Vite · React Router · PropTypes · Vitest · React Testing Library · localStorage
