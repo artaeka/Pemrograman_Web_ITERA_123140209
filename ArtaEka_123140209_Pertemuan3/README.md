@@ -63,10 +63,10 @@ npm install -D @testing-library/user-event   # tambahan untuk simulasi klik/keti
 
 | Halaman | Screenshot |
 | --- | --- |
-| Beranda (daftar, filter, pencarian) | ![Beranda](docs\screenshots\home.png) |
-| Tambah Buku (dengan error validasi) | ![Tambah Buku](docs\screenshots\add_book.png) |
+| Beranda (daftar, filter, pencarian) | ![Beranda](docs/screenshots/home.png) |
+| Tambah Buku (dengan error validasi) | ![Tambah Buku](docs/screenshots/add_book.png) |
 | Edit Buku (modal) | ![Edit](docs/screenshots/edit-book.png) |
-| Statistik | ![Statistik](docs\screenshots\statistic.png) |
+| Statistik | ![Statistik](docs/screenshots/statistic.png) |
 
 ## Struktur Folder
 
