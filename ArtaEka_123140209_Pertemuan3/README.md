@@ -58,9 +58,6 @@ npm install -D @testing-library/user-event   # tambahan untuk simulasi klik/keti
 
 ## Screenshot Antarmuka
 
-> Jalankan `npm run dev`, lalu ambil screenshot dan simpan ke folder
-> `docs/screenshots/` dengan nama berikut agar gambar di bawah tampil.
-
 | Halaman | Screenshot |
 | --- | --- |
 | Beranda (daftar, filter, pencarian) | ![Beranda](docs/screenshots/home.png) |
