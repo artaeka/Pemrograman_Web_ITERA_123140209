@@ -23,6 +23,6 @@ python main.py
 ```
 
 ## Screenshot Hasil Eksekusi
-- Soal 1: `![BMI](screenshots/bmi.png)`
-- Soal 2: `![Nilai](screenshots/nilai.png)`
-- Soal 3: `![Modul](screenshots/main.png)`
+- Soal 1: ![BMI](screenshots/bmi.png)
+- Soal 2: ![Nilai](screenshots/nilai.png)
+- Soal 3: ![Modul](screenshots/main.png)
