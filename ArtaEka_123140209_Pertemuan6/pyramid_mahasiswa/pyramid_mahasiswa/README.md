@@ -9,9 +9,9 @@ CRUD berformat JSON. Modul **Mahasiswa** dari praktikum sebelumnya tetap ada.
 
 | | |
 |---|---|
-| Nama | <Arta Eka Yuly R> |
-| NIM | <123140209> |
-| Kelas | <Praktikum PAW-RB> |
+| Nama | Arta Eka Yuly R |
+| NIM | 123140209 |
+| Kelas | Praktikum PAW-RB |
 
 ## Teknologi
 
